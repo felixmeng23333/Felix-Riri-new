@@ -1,0 +1,62 @@
+/* Styles v3: ❤️ 计价 */ 
+*{box-sizing:border-box}
+:root{--gap:14px;--radius:14px;--brand:#111}
+body{margin:0;background:#fafafa;color:#111;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif}
+.appbar{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:#fff;border-bottom:1px solid #eee;z-index:10}
+.brand{display:flex;gap:8px;align-items:center}
+.right{display:flex;gap:8px;align-items:center}
+.logo{font-size:22px}
+.title{font-weight:700}
+.icon-btn{border:none;background:transparent;font-size:18px;padding:8px;border-radius:10px}
+.icon-btn:active{background:#f2f2f2}
+.points{font-size:13px;background:#fff3f3;border:1px solid #ffd6d6;border-radius:999px;padding:4px 8px}
+.recommend{padding:10px 12px;background:#fff;border-bottom:1px solid #eee}
+.recommend.hidden{display:none}
+.recommend .chips{display:flex;gap:8px;overflow:auto}
+.recommend .chip{border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 12px;white-space:nowrap}
+.store-bar{padding:14px;background:#fff;border-bottom:1px solid #eee}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.toggle .chip{border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 12px}
+.toggle .active{background:#111;color:#fff;border-color:#111}
+.time label{font-size:12px;color:#777;margin-right:6px}
+.address,.search{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;background:#fcfcfc}
+.tabs{display:flex;gap:8px;overflow:auto;padding:10px 12px;background:#fff;position:sticky;top:108px;border-bottom:1px solid #eee;z-index:5}
+.tabs .tab{padding:8px 12px;border-radius:999px;background:#f1f1f1;white-space:nowrap}
+.tabs .tab.active{background:#111;color:#fff}
+.menu{padding:12px;display:grid;gap:10px;grid-template-columns:1fr 1fr}
+@media(min-width:680px){.menu{grid-template-columns:1fr 1fr 1fr}}
+.item-card{position:relative;border:1px solid #eee;background:#fff;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.item-card .meta .name{font-weight:600}
+.item-card .meta .price{color:#e23d2b;font-weight:700}
+.item-card .thumb{width:100%;aspect-ratio:1.2/1;border-radius:10px;background:#f5f5f5}
+.item-card .add{position:absolute;right:10px;bottom:10px;border:none;background:#111;color:#fff;border-radius:999px;width:36px;height:36px;font-size:20px}
+.cartbar{position:sticky;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:12px;background:#fff;border-top:1px solid #eee}
+.btn-primary{background:#111;color:#fff;border:none;border-radius:12px;padding:12px 14px;font-size:16px}
+.btn-plain{border:1px solid #ddd;background:#fff;border-radius:12px;padding:10px 14px}
+.small{font-size:12px}
+.muted{color:#777}
+.bold{font-weight:700}
+.drawer{position:fixed;inset:0;display:none}
+.drawer[open],.drawer.show{display:block}
+.drawer-sheet{position:fixed;inset:auto 0 0 0;background:#fff;border-top-left-radius:18px;border-top-right-radius:18px;max-height:85vh;display:flex;flex-direction:column}
+.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #eee}
+.cart-list{padding:10px 14px;display:grid;gap:10px;overflow:auto}
+.cart-row{display:flex;gap:10px;align-items:center;justify-content:space-between;border-bottom:1px dashed #eee;padding-bottom:8px}
+.cart-row .qty{display:flex;gap:8px;align-items:center}
+.cart-row .qty button{width:28px;height:28px;border-radius:8px;border:1px solid #ddd;background:#fff}
+.cart-row .name{font-weight:600}
+.cart-bottom{padding:12px 14px;border-top:1px solid #eee;display:grid;gap:10px}
+#orderNotes{min-height:64px;border:1px solid #ddd;border-radius:10px;padding:10px}
+.cart-totals{display:grid;gap:6px;justify-items:end}
+.actions{display:flex;gap:10px;justify-content:space-between}
+dialog{border:none;border-radius:16px;padding:0;max-width:560px;width:92vw}
+.dialog-head{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #eee}
+.opt-body{padding:12px 14px;display:grid;gap:10px;max-height:50vh;overflow:auto}
+.option-group{border:1px solid #eee;border-radius:12px;padding:10px}
+.option-group .title{font-weight:600;margin-bottom:6px}
+.option{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border:1px solid #eee;border-radius:10px;margin:6px 0;background:#fff}
+.option input{transform:scale(1.2)}
+.dialog-foot{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-top:1px solid #eee}
+.dialog-foot .qty{display:flex;gap:8px;align-items:center}
+.dialog-foot .qty button{width:32px;height:32px;border-radius:8px;border:1px solid #ddd;background:#fff}

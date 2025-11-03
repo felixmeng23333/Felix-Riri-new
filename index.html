@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>峥峥的食堂</title>
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="appbar">
+    <div class="brand">
+      <button id="btnGacha" class="icon-btn" aria-label="扭蛋">🎲</button>
+      <div class="logo">🍱</div>
+      <div class="title">峥峥的食堂</div>
+    </div>
+    <div class="right">
+      <div id="points" class="points" title="情侣积分">❤️ 0</div>
+      <button id="btnHistory" class="icon-btn" aria-label="历史订单">🕘</button>
+      <button id="btnInfo" class="icon-btn" aria-label="门店信息">ℹ️</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="recommend" class="recommend hidden"></section>
+
+    <section class="store-bar">
+      <div class="row">
+        <div class="toggle">
+          <button class="chip active" data-mode="pickup">自取</button>
+          <button class="chip" data-mode="delivery">外送</button>
+        </div>
+        <div class="time">
+          <label>时间</label>
+          <input id="timeSlot" type="time">
+        </div>
+      </div>
+      <div class="row">
+        <input id="address" class="address" type="text" placeholder="外送地址（仅外送模式必填）">
+      </div>
+      <div class="row">
+        <input id="search" class="search" type="search" placeholder="搜索菜品/关键字…">
+      </div>
+      <div class="note small">添加到主屏幕即可像App一样使用；断网也能浏览菜单。</div>
+    </section>
+
+    <section id="categories" class="tabs"></section>
+    <section id="menu" class="menu"></section>
+  </main>
+
+  <footer class="cartbar" id="cartbar" hidden>
+    <div class="cart-summary">
+      <div><strong id="cart-count">0</strong> 件 · <strong id="cart-total">0❤️</strong></div>
+      <div id="cart-note" class="small"></div>
+    </div>
+    <button id="btnCart" class="btn-primary">查看购物车</button>
+  </footer>
+
+  <!-- Drawer: Cart -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-sheet">
+      <header class="drawer-head">
+        <div>购物车</div>
+        <button id="btnCloseDrawer" class="icon-btn">✕</button>
+      </header>
+      <div id="cartList" class="cart-list"></div>
+      <div class="cart-bottom">
+        <textarea id="orderNotes" placeholder="下单备注（如：少油少盐、不要香菜）"></textarea>
+        <div class="cart-totals">
+          <div>累计爱心 <span id="subtotal">0❤️</span></div>
+          <div id="deliveryFeeRow" class="muted">外送费（不计❤️） <span id="deliveryFee">0❤️</span></div>
+          <div class="bold">合计 <span id="grandTotal">0❤️</span></div>
+        </div>
+        <div class="actions">
+          <button id="btnClear" class="btn-plain">清空</button>
+          <button id="btnPlace" class="btn-primary">去下单</button>
+        </div>
+        <div class="small muted">下单方式：短信 / 微信（复制模板）/ 邮件</div>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  </div>
+
+  <!-- Modal: Options -->
+  <dialog id="dlgOptions">
+    <form method="dialog" class="options-form">
+      <header class="dialog-head">
+        <div id="optTitle">选择</div>
+        <button id="optClose" value="cancel" class="icon-btn">✕</button>
+      </header>
+      <div id="optBody" class="opt-body"></div>
+      <footer class="dialog-foot">
+        <div class="qty">
+          <button type="button" id="minus">–</button>
+          <input type="number" id="qty" min="1" value="1">
+          <button type="button" id="plus">+</button>
+        </div>
+        <button id="optAdd" value="ok" class="btn-primary">加入购物车</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Modal: History -->
+  <dialog id="dlgHistory">
+    <header class="dialog-head">
+      <div>订单历史</div>
+      <button id="hisClose" class="icon-btn">✕</button>
+    </header>
+    <div id="hisBody" class="opt-body"></div>
+    <footer class="dialog-foot">
+      <button id="hisClear" class="btn-plain">清空历史</button>
+      <button id="hisClose2" class="btn-primary">关闭</button>
+    </footer>
+  </dialog>
+
+  <!-- Modal: Place -->
+  <dialog id="dlgPlace">
+    <header class="dialog-head">
+      <div>选择发送方式</div>
+      <button id="placeClose" class="icon-btn">✕</button>
+    </header>
+    <div class="opt-body">
+      <button id="sendSMS" class="btn-primary">iMessage / 短信发送</button>
+      <button id="copyWeChat" class="btn-plain">复制微信模板</button>
+      <button id="sendMail" class="btn-plain">邮件发送</button>
+    </div>
+    <footer class="dialog-foot">
+      <div class="small muted">微信无法像短信那样直接拉起对话框，这里提供一键复制模板。</div>
+    </footer>
+  </dialog>
+
+  <template id="tplItem">
+    <article class="item-card">
+      <div class="meta">
+        <div class="name"></div>
+        <div class="desc small muted"></div>
+        <div class="price"></div>
+      </div>
+      <div class="thumb"></div>
+      <button class="add">＋</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
